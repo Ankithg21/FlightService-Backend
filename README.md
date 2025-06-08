@@ -1,6 +1,7 @@
 # Sequelize guide
-Commands:
+
 '''
+Commands:
   1. sequelize db:migrate                        Run pending migrations
   2. sequelize db:migrate:schema:timestamps:add  Update migration table to have timestamps
   3. sequelize db:migrate:status                 List the status of all migrations

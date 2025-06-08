@@ -18,6 +18,18 @@ async function createAirplane(req, res){
     }
 }
 
+async function getAirplanes(req, res){
+    try {
+        const airplanes = await AirplaneService.getAirplane();
+        SuccessResponse.data = airplanes;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        Error.error = error;
+        return res.status(error.statusCode).json(ErrorResponse);
+    }
+};
+
 module.exports = {
     createAirplane,
+    getAirplanes,
 }
