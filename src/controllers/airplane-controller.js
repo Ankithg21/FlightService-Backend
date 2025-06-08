@@ -3,7 +3,7 @@ const {StatusCodes} = require("http-status-codes");
 
 async function createAirplane(req, res){
     try {
-        const airplane = AirplaneService.createAirplane({
+        const airplane =await AirplaneService.createAirplane({
             modelNumber: req.body.modelNumber,
             capacity: req.body.capacity
         });
