@@ -19,6 +19,9 @@ class CrudRepository{
                 id: data
             }
         });
+        if(!response){
+            throw new AppError("Not able to Delete the resource - Resource not found", StatusCodes.NOT_FOUND);
+        }
         return response;
     }
 

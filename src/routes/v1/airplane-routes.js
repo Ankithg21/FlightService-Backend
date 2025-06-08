@@ -26,6 +26,10 @@ router.get(
     AirplaneController.getAirplane
 );
 
-
+router.patch(
+    "/:id",
+    AirplaneMiddlewares.validateUpdateRequest,
+    AirplaneController.updateAirplane
+);
 
 module.exports = router;
