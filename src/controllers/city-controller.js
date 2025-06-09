@@ -2,6 +2,7 @@ const {CityService} = require("../services");
 const {StatusCodes} = require("http-status-codes");
 const {SuccessResponse, ErrorResponse} = require("../utils/common");
 
+// POST /api/v1/cities
 async function createCity(req, res){
     try {
         const city =await CityService.createCity({
@@ -17,6 +18,18 @@ async function createCity(req, res){
     }
 }
 
+async function destroyCity(req, res){
+    try {
+        const response = await CityService.deleteCity(req.params.id);
+        SuccessResponse.data = response;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res.status(error.statusCode).json(ErrorResponse);
+    }
+};
+
 module.exports = {
-    createCity
+    createCity,
+    destroyCity,
 };
