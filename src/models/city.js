@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Airport, {
         foreignKey: "city_Id"
       });
+      
     }
   }
   City.init({
