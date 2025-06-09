@@ -16,5 +16,12 @@ router.delete(
     CityController.destroyCity
 )
 
+// PATCH /api/v1/cities/:id
+router.patch(
+    "/:id",
+    CityMiddlewares.validateCreateRequest,
+    CityController.updateCity
+)
+
 module.exports = router;
 

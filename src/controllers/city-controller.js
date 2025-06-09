@@ -29,7 +29,22 @@ async function destroyCity(req, res){
     }
 };
 
+async function updateCity(req, res){
+    try {
+        const id = req.params.id;
+        const data = req.body;
+        const response = await CityService.updateCity(id, data);
+        SuccessResponse.data = response;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res.status(error.statusCode).json(ErrorResponse);
+    }
+};
+
 module.exports = {
     createCity,
     destroyCity,
+    updateCity,
 };
+
