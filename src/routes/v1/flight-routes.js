@@ -10,4 +10,11 @@ router.post(
     FlightController.createFlight
 );
 
+// Query string.
+// GET /api/v1/flights?trips=BLR-MUM
+router.get(
+    "/",
+    FlightController.getAllFlights
+)
+
 module.exports = router;
